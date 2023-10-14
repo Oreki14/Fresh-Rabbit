@@ -6,9 +6,6 @@
 <!--  一级路由出口组件  -->
   <RouterView/>
 <!-- 测试颜色 -->
-  <div class="test">
-    test scss
-  </div>
 </template>
 
 <style scoped lang="scss">
