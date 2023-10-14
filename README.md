@@ -3,9 +3,9 @@
 
 使用Vue3开发实现
 
-## Recommended IDE Setup
+## 安装[IDEA](https://www.jetbrains.com/zh-cn/idea/)
 
-使用Idea 2023.2.3开发
+本项目使用Idea 2023.2.3开发
 
 ## Customize configuration
 
@@ -33,4 +33,9 @@ npm run build
 
 ```sh
 npm run lint
+```
+### 安装[vueUse](https://vueuse.org/)
+本项目为实现从网页获取用户滑动距离，使用了vueUse，需添加如下
+```
+npm i @vueuse/core
 ```
