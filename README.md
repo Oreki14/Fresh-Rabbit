@@ -1,3 +1,4 @@
+# 个人项目，复刻实现黑马程序员《小兔鲜Vue3》项目
 # vue-rabbit
 
 This template should help get you started developing with Vue 3 in Vite.
