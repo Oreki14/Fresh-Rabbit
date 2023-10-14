@@ -1,23 +1,24 @@
+# 个人项目，复刻实现黑马程序员《小兔鲜Vue3》项目
 # vue-rabbit
 
-This template should help get you started developing with Vue 3 in Vite.
+使用Vue3开发实现
 
-## Recommended IDE Setup
+## 安装[IDEA](https://www.jetbrains.com/zh-cn/idea/)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+本项目使用Idea 2023.2.3开发
 
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
-
+运行以下代码（在终端中运行），安装依赖
 ```sh
 npm install
 ```
 
 ### Compile and Hot-Reload for Development
-
+运行代码（终端运行）
 ```sh
 npm run dev
 ```
@@ -32,4 +33,9 @@ npm run build
 
 ```sh
 npm run lint
+```
+### 安装[vueUse](https://vueuse.org/)
+本项目为实现从网页获取用户滑动距离，使用了vueUse，需添加如下
+```
+npm i @vueuse/core
 ```
