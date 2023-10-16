@@ -1,7 +1,11 @@
 <script setup>
 // vueUse，导入useScroll检查用户滚动距离
 import { useScroll } from '@vueuse/core'
-const { y } = useScroll(window);
+import {useCategoryStore} from "@/stores/category";
+
+// 使用pinia中的数据
+const categoryStore = useCategoryStore()
+const { y } = useScroll(window)
 </script>
 
 <template>
@@ -15,32 +19,8 @@ const { y } = useScroll(window);
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">母婴</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">个护</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">严选</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">数码</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">运动</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">杂项</RouterLink>
+        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+          <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
 
