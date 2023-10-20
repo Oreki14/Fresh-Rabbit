@@ -35,7 +35,7 @@ npm run build
 npm run lint
 ```
 ### 安装[vueUse](https://vueuse.org/)
-本项目为实现从网页获取用户滑动距离，使用了vueUse，需添加如下
+本项目为实现从网页获取用户滑动距离、监听用户视界等，使用了vueUse组合式API的函数集合，若无法正常使用，可尝试运行以下代码添加相关资源
 ```
 npm i @vueuse/core
 ```
