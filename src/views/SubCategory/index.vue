@@ -30,6 +30,7 @@ const tabChange = () => {
   // 再次发送网络请求
   // 重置页数
   reqData.value.page = 1
+  disable.value = false
   getGoodList()
 }
 // 无限滚动
