@@ -1,9 +1,13 @@
 import httpInstance from '@/utils/http'
 
 // 封装获取banner接口
-export function getBannerAPI () {
+export function getBannerAPI (params = {}) {
+    const {distributionSite = '1'} = params
     return httpInstance({
-        url: '/home/banner'
+        url: '/home/banner',
+        params: {
+            distributionSite
+        }
     })
 }
 
