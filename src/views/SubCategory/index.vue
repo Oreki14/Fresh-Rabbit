@@ -4,7 +4,9 @@ import {ref, onMounted} from "vue";
 import {useRoute} from "vue-router";
 import ProductPanel from "@/views/Home/components/ProductPanel.vue";
 
-// 获取面包屑导航数据
+/*
+ 获取面包屑导航数据
+ */
 const categoryData = ref([])
 const route = useRoute()
 const getCategoryData = async () => {
@@ -13,7 +15,9 @@ const getCategoryData = async () => {
 }
 onMounted(() => getCategoryData())
 
-// 获取基础列表数据
+/*
+ 获取基础列表数据
+ */
 const goodList = ref([])
 const reqData = ref({
   categoryId: route.params.id,
@@ -33,7 +37,9 @@ const tabChange = () => {
   disable.value = false
   getGoodList()
 }
-// 无限滚动
+/*
+ 无限滚动
+ */
 const disable = ref(false)
 const load = async () => {
   // 获取下一页的数据
