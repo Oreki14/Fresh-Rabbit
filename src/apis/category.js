@@ -22,7 +22,13 @@ export const getCategoryFilterAPI = (id) => {
         }
     })
 }
-
+export const getSubCategoryAPI = (date) => {
+    return httpInstance({
+        url: '/category/goods/temporary',
+        method: 'POST',
+        data: date
+    })
+}
 
 
 
