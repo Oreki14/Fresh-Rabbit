@@ -20,3 +20,7 @@ getCategory().then(res => {
 
 // 引入懒加载指令差价并注册
 app.use(lazyPlugin)
+
+// 引入全局组件
+import { componentPlugin } from "@/components";
+app.use(componentPlugin)

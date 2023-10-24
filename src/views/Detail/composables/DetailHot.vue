@@ -16,7 +16,6 @@ const getHotList = async () => {
     type: props.hotType
   })
   hotList.value = res.result
-  console.log(hotList.value)
 }
 // 设计一个props参数，适配不同的title
 const props = defineProps({
@@ -32,6 +31,10 @@ const TYPEMAP = {
 }
 const title = computed(() => TYPEMAP[props.hotType])
 onMounted(() => getHotList())
+// 网页跳转
+const run =(id) => {
+  window.location.href = "http://localhost:5173/detail/"+id;
+}
 </script>
 
 
@@ -39,7 +42,7 @@ onMounted(() => getHotList())
   <div class="goods-hot">
     <h3>{{ title }}</h3>
     <!-- 商品区块 -->
-    <RouterLink to="/" class="goods-item" v-for="item in hotList" :key="item.id">
+    <RouterLink v-for="item in hotList" :key="item.id"  class="goods-item" @click="run(item.id)" to="">
       <img :src="item.picture" alt=""/>
       <p class="name ellipsis">{{ item.name }}</p>
       <p class="desc ellipsis">{{ item.desc }}</p>

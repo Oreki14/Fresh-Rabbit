@@ -1,5 +1,4 @@
 // 定义懒加载组件
-import app from "@/App.vue";
 import {useIntersectionObserver} from "@vueuse/core";
 
 export const lazyPlugin = {
