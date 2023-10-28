@@ -1,8 +1,11 @@
 <script setup>
 
 import {useCategoryStore} from "@/stores/category";
+import HeaderCart from "@/views/Layout/components/HeaderCart.vue";
+
 // 使用在api中定义的函数拉取nav数据
 const categoryStore = useCategoryStore()
+
 </script>
 
 <template>
@@ -25,7 +28,7 @@ const categoryStore = useCategoryStore()
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-
+      <HeaderCart/>
     </div>
   </header>
 </template>
