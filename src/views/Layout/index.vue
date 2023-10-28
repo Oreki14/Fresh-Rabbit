@@ -16,7 +16,7 @@ onMounted(() => categoryStore.getCategory())
 
   <LayoutHeader/>
   <!-- 通过添加key 来破坏复用机制 强制销毁重建的方式来实现请求的发送 -->
-<!--  <RouterView :key="$route.fullPath"/>-->
+  <!--  <RouterView :key="$route.fullPath"/>-->
   <RouterView/>
   <LayoutFooter/>
   <LayoutFixed/>
