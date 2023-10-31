@@ -1,7 +1,7 @@
 <script setup>
 // vueUse，导入useScroll检查用户滚动距离
 import { useScroll } from '@vueuse/core'
-import {useCategoryStore} from "@/stores/category";
+import {useCategoryStore} from "@/stores/categoryStore";
 
 // 使用pinia中的数据
 const categoryStore = useCategoryStore()

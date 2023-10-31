@@ -5,7 +5,7 @@ import {loginAPI} from "@/apis/user";
 import { useRouter } from "vue-router";
 import {ElMessage} from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
-import {useUserStore} from "@/stores/user";
+import {useUserStore} from "@/stores/userStore";
 // 1.准备表单对象
 const form = ref({
   account: '12056258282',
