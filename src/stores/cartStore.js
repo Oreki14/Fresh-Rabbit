@@ -1,23 +1,36 @@
 // 封装购物车模块
 import {defineStore} from 'pinia'
 import {ref, computed} from 'vue';
+import {useUserStore} from './user'
+import {insertCartAPI,findNewCartListAPI} from "@/apis/cart";
 
 export const useCartStore = defineStore('cart', () => {
+    const userStore = useUserStore()
+    const isLogin = computed(() => userStore.userInfo.token)
     // 1.定义state - cartList
     const cartList = ref([])
     // 2.定义action - addCart
-    const addCart = (goods) => {
-        /*
-         添加购物车操作
-         */
-        // 1.如果添加过该商品，则计数加一
-        const item = cartList.value.find((item) => goods.skuId === item.skuId);
-        if (item) {
-            // 找到了
-            item.count++
+    const addCart =async (goods) => {
+        const {skuId,count} = goods
+        if (isLogin.value) {
+            // 登录状态下，添加到购物车
+            // 调用接口访问数据
+            await insertCartAPI({skuId,count})
+            const res = await findNewCartListAPI()
+            cartList.value = res.result
         } else {
-            // 没找到则push
-            cartList.value.push(goods)
+            /*
+            未登录的状态下，添加购物车到本地
+             */
+            const item = cartList.value.find((item) => goods.skuId === item.skuId);
+            if (item) {
+                // 找到了
+                item.count++
+            } else {
+                // 没找到则push
+                cartList.value.push(goods)
+            }
+
         }
     }
     // 删除购物车
