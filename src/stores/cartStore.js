@@ -39,6 +39,11 @@ export const useCartStore = defineStore('cart', () => {
         const idx = cartList.value.findIndex((item) => skuId === item.skuId)
         cartList.value.splice(idx, 1)
     }
+    // 清除购物车
+    const clearCart = () => {
+        // 直接将cartList赋值为空
+        cartList.value = []
+    }
     // 单选功能
     const singleCheck = (skuId, selected) => {
         // 通过skuId找到要修改的
@@ -74,7 +79,8 @@ export const useCartStore = defineStore('cart', () => {
         isAll,
         allCheck,
         allSelected,
-        allSelectedPrice
+        allSelectedPrice,
+        clearCart
     }
 }, {
     persist: true
