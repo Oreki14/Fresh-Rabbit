@@ -1,6 +1,6 @@
 // createRouter创建router实例对象
 // createWebHistory创建history模式的路由
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 // 导入组件login
 import Login from '@/views/Login/index.vue'
 import Layout from '@/views/Layout/index.vue'
@@ -9,50 +9,62 @@ import Category from '@/views/Category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
 import Detail from '@/views/Detail/index.vue'
 import CartList from '@/views/CartList/index.vue'
+import Checkout from '@/views/Checkout/index.vue'
+import Pay from '@/views/Pay/index.vue'
+import PayBack from "@/views/Pay/PayBack.vue";
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  // 配置path和component对应关系的位置
-  routes: [
-    {
-      path: '/',
-      component: Layout,
-      children: [
+    history: createWebHistory(import.meta.env.BASE_URL),
+    // 配置path和component对应关系的位置
+    routes: [
         {
-          // 默认路由
-          path: '',
-          component: Home
+            path: '/',
+            component: Layout,
+            children: [
+                {
+                    // 默认路由
+                    path: '',
+                    component: Home
+                },
+                {
+                    path: 'category/:id',
+                    name: 'category',
+                    component: Category
+                },
+                {
+                    path: 'category/sub/:id',
+                    name: 'subCategory',
+                    component: SubCategory
+                },
+                {
+                    path: 'detail/:id',
+                    name: 'detail',
+                    component: Detail
+                }, {
+                    path: 'cartlist',
+                    component: CartList
+                }, {
+                    path: 'checkout',
+                    component: Checkout
+                }, {
+                    path: 'pay',
+                    component: Pay
+                },{
+                    path: 'paycallback', // 注意路径，必须是paycallback
+                    component: PayBack
+                }
+            ]
         },
         {
-          path: 'category/:id',
-          name: 'category',
-          component: Category
-        },
-        {
-          path: 'category/sub/:id',
-          name:'subCategory',
-          component: SubCategory
-        },
-        {
-          path: 'detail/:id',
-          name: 'detail',
-          component: Detail
-        },{
-          path: 'cartlist',
-          component: CartList
+            path: '/login',
+            component: Login
         }
-      ]
-    },
-    {
-      path: '/login',
-      component: Login
+    ],
+    // 路由滚动限制
+    scrollBehavior() {
+        return {
+            top: 0
+        }
     }
-  ],
-  // 路由滚动限制
-  scrollBehavior () {
-    return {
-      top: 0
-    }
-  }
 })
 
 export default router
